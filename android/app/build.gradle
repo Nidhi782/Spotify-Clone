@@ -1,0 +1,46 @@
+plugins {
+    id "com.android.application"
+    id 'com.google.gms.google-services' // Firebase Configuration
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin" // Flutter Plugin
+}
+
+android {
+    namespace "com.example.spotify_2" 
+    compileSdkVersion 34  // Add this line to explicitly set the compile SDK version
+
+    compileOptions {
+    sourceCompatibility JavaVersion.VERSION_17
+    targetCompatibility JavaVersion.VERSION_17
+}
+
+    kotlinOptions {
+    jvmTarget = "17"
+}
+
+    defaultConfig {
+        applicationId "com.example.spotify_2"
+
+        minSdkVersion 23
+        targetSdkVersion 34  // Explicitly set a valid SDK version
+        versionCode 1  // Set a valid version code
+        versionName "1.0"  // Set a valid version name
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.debug
+        }
+    }
+    
+lintOptions {
+        // Ensure these are correct or remove if causing errors
+        abortOnError false
+        checkReleaseBuilds false
+    }
+
+}
+
+flutter {
+    source "../.."
+}
